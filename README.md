@@ -14,7 +14,7 @@ Running 2 tests for test/GalaxyBrainReentrancyGuard.t.sol:GalaxyBrainReentrancyG
 
 The EVM supports a maximum call stack depth of 1024. Therefore, when you're the frame at the top of a stack of 1024 calls, you can't create any additional calls. Now, that's security!
 
-There is no native way to know the current call stack depth in the EVM, so [GalaxyBrainReentrancyGuard](TODO) uses recursion to create a stack with the maximum depth. It keeps calling itself until it starts failing, then it calls the final destination.
+There is no native way to know the current call stack depth in the EVM, so [GalaxyBrainReentrancyGuard](https://github.com/karmacoma-eth/galaxy-brain-reentrancy-guard/blob/main/src/GalaxyBrainReentrancyGuard.sol) uses recursion to create a stack with the maximum depth. It keeps calling itself until it starts failing, then it calls the final destination.
 
 ```solidity
 function _nonReentrant(MessageCall memory call) public returns (bool success, bytes memory returndata) {
