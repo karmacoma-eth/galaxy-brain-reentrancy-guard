@@ -24,10 +24,10 @@ contract GalaxyBrainReentrancyGuard {
         require(msg.sender == address(this), "WRONG_SENDER");
 
         try GalaxyBrainReentrancyGuard(address(this)).test_hop() {
-            // test_hop succeeded, need to go deeper
+            // ⛏️ test_hop succeeded, need to go deeper
             (success, returndata) = GalaxyBrainReentrancyGuard(address(this))._nonReentrant(call);
         } catch {
-            // test_hop failed, we reached the max call height 👌
+            // 👌 test_hop failed, we reached the max call height
             (success, returndata) = call.target.call{value: call.value}(call.data);
         }
     }
